@@ -1,5 +1,5 @@
 import { PstlWeb3ModalProps } from '@past3lle/web3-modal'
-import { goerli, polygonMumbai } from '@wagmi/chains'
+import { mainnet } from '@wagmi/chains'
 import modalTheme, { PALETTE } from 'theme'
 
 import { LedgerConnector } from 'wagmi/connectors/ledger'
@@ -17,7 +17,7 @@ enum ZIndices {
   W3A = 700
 }
 
-const chains = [goerli, polygonMumbai]
+const chains = [mainnet]
 const WC_PROJECT_ID = 'a01e2f3b7c64ff495f9cb28e4e2d4b49'
 const WEB3AUTH_TEST_ID = 'BHloyoLW113nGn-mIfeeNqj2U0wNCXa4y83xLnR6d3FELPMz_oZ7rbY4ZEO3r0MVjQ_LX92obu1ta0NknOwfvtU'
 
