@@ -32,6 +32,7 @@ const config = {
   },
   modals: {
     pstl: {
+      closeModalOnConnect: true,
       zIndex: ZIndices.BASE,
       title: 'CHORUS ONE CONNECT',
       themeConfig: {

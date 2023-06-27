@@ -2,7 +2,7 @@ import PSTL_MODAL_CONFIG from './config'
 import { PstlW3Providers, usePstlConnection } from '@past3lle/web3-modal'
 
 function InnerApp() {
-  const [, { openPstlW3Modal }, { address }] = usePstlConnection()
+  const [, { openPstlW3Modal, openW3Modal }, { address }] = usePstlConnection()
 
   return (
     <div className="InnerApp">
@@ -25,8 +25,12 @@ function InnerApp() {
         </a>
       </h3>
 
-      <button onClick={() => openPstlW3Modal({ route: address ? 'Account' : 'ConnectWallet' })}>
-        OPEN PAST3LLE MODAL
+      {address && <h2>Address: {address}</h2>}
+
+      <button
+        onClick={() => (address ? openW3Modal({ route: 'Account' }) : openPstlW3Modal({ route: 'ConnectWallet' }))}
+      >
+        {address ? 'VIEW ACCOUNT INFO' : 'OPEN PAST3LLE MODAL'}
       </button>
     </div>
   )
