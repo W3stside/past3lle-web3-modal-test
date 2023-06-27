@@ -27,7 +27,7 @@ const config = {
   wagmiClient: {
     options: {
       pollingInterval: 10_000,
-      connectors: [new LedgerConnector({ chains, options: { projectId: WC_PROJECT_ID } })]
+      connectors: [new LedgerConnector({ chains, options: { projectId: WC_PROJECT_ID, walletConnectVersion: 2 } })]
     }
   },
   modals: {
