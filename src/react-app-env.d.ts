@@ -1,13 +1,5 @@
 /// <reference types="react-scripts" />
 
-declare module '@metamask/jazzicon' {
-  export default function(diameter: number, seed: number): HTMLElement
-}
-
-declare module 'fortmatic'
-declare module 'lethargy'
-declare module 'imagekitio-react'
-
 interface Window {
   ethereum?: {
     isMetaMask?: true
