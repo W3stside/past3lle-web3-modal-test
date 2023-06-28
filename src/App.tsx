@@ -36,13 +36,6 @@ export default function App() {
   const moddedConfig = useMemo(() => {
     const config = Object.assign({}, PSTL_MODAL_CONFIG)
     ;(config.modals.pstl || {}).walletsView = view
-    if (view === 'grid') {
-      ;(config.modals.pstl || {}).width = '650px'
-      ;(config.modals.pstl || {}).maxWidth = '100%'
-      ;(config.modals.pstl || {}).maxHeight = '550px'
-    } else {
-      ;(config.modals.pstl || {}).maxWidth = '50vh'
-    }
     return config
   }, [view])
 

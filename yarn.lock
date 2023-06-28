@@ -2474,10 +2474,10 @@
   dependencies:
     ua-parser-js "^1.0.32"
 
-"@past3lle/web3-modal@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@past3lle/web3-modal/-/web3-modal-1.0.1.tgz#7dbdc66b70e5e9f44e2611bbdc0292f5755468ee"
-  integrity sha512-KX5+XkXxbJ8G9fsLZNyR7z1fSB//E4lYneE3aioa5xvaU+x1kBlYuFheKAcCdFMLBVg53ciuuqXOw34lLnP6pg==
+"@past3lle/web3-modal@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@past3lle/web3-modal/-/web3-modal-1.0.2.tgz#363d3735e7e785e133e6d129bd064b187ed20c11"
+  integrity sha512-7tpWBQXQCeC/3bciGgRQFuJ3bZ4cBKZNoJ0Fm3jtwMSzhrWPsMhl6EZ3WI7TupQqUhyxAmyRlM2YCcfiou+ETA==
   dependencies:
     "@ethersproject/bignumber" ">=5.7.0"
     "@gnosis.pm/safe-apps-wagmi" "2.1.0"
