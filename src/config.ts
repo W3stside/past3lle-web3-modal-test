@@ -33,16 +33,12 @@ const config = {
   modals: {
     pstl: {
       walletsView: 'grid',
-      width: '650px',
-      maxWidth: '100%',
-      maxHeight: '550px',
       closeModalOnConnect: true,
       zIndex: ZIndices.BASE,
       title: 'CHORUS ONE CONNECT',
       themeConfig: {
         theme: modalTheme
       },
-      hideInjectedFromRoot: true,
       connectorDisplayOverrides: {
         web3auth: {
           logo: 'https://www.pngkit.com/png/full/178-1783296_g-transparent-circle-google-logo.png',
@@ -56,12 +52,19 @@ const config = {
           rank: WalletRank['web3auth']
         },
         walletConnect: {
+          logo: 'https://repository-images.githubusercontent.com/204001588/a5169900-c66c-11e9-8592-33c7334dfd6d',
           // Uncomment to add helper text under connectors
           // infoText: {
           //   title: 'What is this option?',
           //   content: 'Choose this to open the WalletConnect wallet modal and select a 3rd party wallet of your choice!'
           // },
           rank: WalletRank['walletConnect']
+        },
+        MetaMask: {
+          logo:
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/MetaMask_Fox.svg/1200px-MetaMask_Fox.svg.png',
+          isRecommended: true,
+          rank: WalletRank['ledger'] - 1
         },
         ledger: {
           logo:
@@ -72,6 +75,7 @@ const config = {
           //   title: 'What is this option?',
           //   content: 'Choose this to connect with your Ledger hardware wallet via the LedgerLive desktop app!'
           // },
+          isRecommended: true,
           rank: WalletRank['ledger']
         }
       }
