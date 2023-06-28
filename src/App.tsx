@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import PSTL_MODAL_CONFIG from './config'
 import { PstlW3Providers, usePstlConnection } from '@past3lle/web3-modal'
+import { useIsSmallMediaWidth } from '@past3lle/hooks'
 
 function InnerApp() {
   const [, { openPstlW3Modal, openW3Modal }, { address }] = usePstlConnection()
@@ -30,6 +31,7 @@ function InnerApp() {
 }
 
 export default function App() {
+  const isSmallScreen = useIsSmallMediaWidth()
   const [view, setView] = useState<'list' | 'grid'>('list')
   // TODO: should prob make this logic default in lib
   // But tbh most ppl wouldn't add a modal "view" switcher in their app anyway...
@@ -59,7 +61,20 @@ export default function App() {
           also here!
         </a>
       </h3>
-      <button onClick={() => setView(currView => (currView === 'list' ? 'grid' : 'list'))}>
+      {isSmallScreen && (
+        <div
+          style={{
+            margin: '1rem 0',
+            padding: '0.5rem',
+            borderRadius: '0.5rem',
+            background: 'indianred',
+            color: 'black'
+          }}
+        >
+          Modal is always in list view on small screens. View on desktop/tablet to toggle and view different views
+        </div>
+      )}
+      <button disabled={isSmallScreen} onClick={() => setView(currView => (currView === 'list' ? 'grid' : 'list'))}>
         CHANGE MODAL VIEW TYPE: {view === 'list' ? 'GRID' : 'LIST'}
       </button>
       <PstlW3Providers config={moddedConfig}>

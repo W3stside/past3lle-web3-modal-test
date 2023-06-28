@@ -1,3 +1,4 @@
+import { PstlHooksProvider } from '@past3lle/hooks'
 import App from 'App'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
@@ -11,6 +12,8 @@ const container = document.getElementById('root')!
 const root = createRoot(container)
 root.render(
   <StrictMode>
-    <App />
+    <PstlHooksProvider>
+      <App />
+    </PstlHooksProvider>
   </StrictMode>
 )
