@@ -2412,10 +2412,10 @@
   resolved "https://registry.yarnpkg.com/@past3lle/assets/-/assets-0.0.19.tgz#c92d16394f8b803173bff15275f9e7550055b2f9"
   integrity sha512-jGHJT4bc583Q+V21+SFP3yad/1K5ME6wsguzh7DYOuQc9LJ7WYWfci/HrB3cp4pkDLwtE5YpzuR5zXcC98/BZA==
 
-"@past3lle/components@^0.0.74":
-  version "0.0.74"
-  resolved "https://registry.yarnpkg.com/@past3lle/components/-/components-0.0.74.tgz#f36c023cd4c288d81fb79ae42aacd06abf7fd787"
-  integrity sha512-uSB3rd9krUWhOZpbFKv7500lEZfp6ssTAd6ol7UhtLbC/xcnwxRAHm1ogey/sEyTl+9/7CALGFzZWPunegfOZA==
+"@past3lle/components@^0.0.75":
+  version "0.0.75"
+  resolved "https://registry.yarnpkg.com/@past3lle/components/-/components-0.0.75.tgz#2e550f471522140c152962f2521289aaba2366a2"
+  integrity sha512-10ydcEcCbkMEzVoqgqGltwM7KYIO9oGTeEM64nLo5OyCatxO7HOY2l/ySiP9J3YGGe8LhUMOSEMb8dPotZjs+Q==
   dependencies:
     "@past3lle/assets" "^0.0.19"
     "@past3lle/constants" "^0.0.27"
@@ -2474,14 +2474,14 @@
   dependencies:
     ua-parser-js "^1.0.32"
 
-"@past3lle/web3-modal@1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@past3lle/web3-modal/-/web3-modal-1.0.0.tgz#3c818ee0c8fb3beb7c527956626ffc705e29949d"
-  integrity sha512-tDrFR+aEzOyTnxyNYjVyEqUpNXR8qT6xSRh64dL9VUY6JOP5n1vz51gMMthIqT7gib5Fnwiwkeut4q9PFepslQ==
+"@past3lle/web3-modal@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@past3lle/web3-modal/-/web3-modal-1.0.1.tgz#7dbdc66b70e5e9f44e2611bbdc0292f5755468ee"
+  integrity sha512-KX5+XkXxbJ8G9fsLZNyR7z1fSB//E4lYneE3aioa5xvaU+x1kBlYuFheKAcCdFMLBVg53ciuuqXOw34lLnP6pg==
   dependencies:
     "@ethersproject/bignumber" ">=5.7.0"
     "@gnosis.pm/safe-apps-wagmi" "2.1.0"
-    "@past3lle/components" "^0.0.74"
+    "@past3lle/components" "^0.0.75"
     "@past3lle/hooks" "^0.0.41"
     "@past3lle/theme" "^0.0.49"
     "@past3lle/utils" "^0.0.27"
@@ -4267,6 +4267,14 @@
     buffer "6.0.3"
     valtio "1.10.6"
 
+"@walletconnect/modal-core@2.5.5":
+  version "2.5.5"
+  resolved "https://registry.yarnpkg.com/@walletconnect/modal-core/-/modal-core-2.5.5.tgz#dc2ee96b1dd7cd9a1dc5e276c46068ee6349616a"
+  integrity sha512-M2BKcI5aqnGfMAz+MgTsvnTRzD25uz9YJ3/xuzy+ovgFCl2VCGH2Vdrf6Ptu+UR6UMuPdssG1TXXe1rd907Dxw==
+  dependencies:
+    buffer "6.0.3"
+    valtio "1.10.6"
+
 "@walletconnect/modal-ui@2.5.4":
   version "2.5.4"
   resolved "https://registry.yarnpkg.com/@walletconnect/modal-ui/-/modal-ui-2.5.4.tgz#0433fb0226dd47e17fede620c5a5ff332baed155"
@@ -4277,13 +4285,31 @@
     motion "10.16.2"
     qrcode "1.5.3"
 
-"@walletconnect/modal@2.5.4", "@walletconnect/modal@^2.4.6":
+"@walletconnect/modal-ui@2.5.5":
+  version "2.5.5"
+  resolved "https://registry.yarnpkg.com/@walletconnect/modal-ui/-/modal-ui-2.5.5.tgz#f2ab96ab72f0f1325252224560ec610b73d1684c"
+  integrity sha512-g0LJ/gRhZ5E30gk4GnMpDlQzLFWyRjsJp57s9rZmlVkry5mfhCZ3Oh0mfgv2/ILVxdB4fUo1BjatKyOpSogOmg==
+  dependencies:
+    "@walletconnect/modal-core" "2.5.5"
+    lit "2.7.5"
+    motion "10.16.2"
+    qrcode "1.5.3"
+
+"@walletconnect/modal@2.5.4":
   version "2.5.4"
   resolved "https://registry.yarnpkg.com/@walletconnect/modal/-/modal-2.5.4.tgz#66659051f9c0f35c151d3a8d940f8c64d42fab74"
   integrity sha512-JAKMcCd4JQvSEr7pNitg3OBke4DN1JyaQ7bdi3x4T7oLgOr9Y88qdkeOXko/0aJonDHJsM88hZ10POQWmKfEMA==
   dependencies:
     "@walletconnect/modal-core" "2.5.4"
     "@walletconnect/modal-ui" "2.5.4"
+
+"@walletconnect/modal@^2.4.6":
+  version "2.5.5"
+  resolved "https://registry.yarnpkg.com/@walletconnect/modal/-/modal-2.5.5.tgz#703eb076af4442dcd14a3b0b87863f17283f6514"
+  integrity sha512-y1PH1xXzFDtVZErfQErPPJzPU9DKLp4M0IEaza8LfegqHfTFaGa0s3AL+i5+7FIk9+5OHSv0Wv+e5tmSZt96yA==
+  dependencies:
+    "@walletconnect/modal-core" "2.5.5"
+    "@walletconnect/modal-ui" "2.5.5"
 
 "@walletconnect/randombytes@^1.0.3":
   version "1.0.3"
@@ -6371,7 +6397,7 @@ cross-spawn@^7.0.0, cross-spawn@^7.0.1, cross-spawn@^7.0.2, cross-spawn@^7.0.3:
     shebang-command "^2.0.0"
     which "^2.0.1"
 
-crypto-browserify@^3.12.0:
+crypto-browserify@3.12.0:
   version "3.12.0"
   resolved "https://registry.yarnpkg.com/crypto-browserify/-/crypto-browserify-3.12.0.tgz#396cf9f3137f03e4b8e532c58f698254e00f80ec"
   integrity sha512-fz4spIh+znjO2VjL+IdhEpRJ3YN6sMzITSBijk6FK2UvTqruSQW+/cCZTSNsMiZNvUeq0CqurF+dAbyiGOY6Wg==
@@ -7007,10 +7033,10 @@ end-of-stream@^1.1.0, end-of-stream@^1.4.1, end-of-stream@^1.4.4:
   dependencies:
     once "^1.4.0"
 
-engine.io-client@~6.5.0:
-  version "6.5.0"
-  resolved "https://registry.yarnpkg.com/engine.io-client/-/engine.io-client-6.5.0.tgz#c77f14c0e996d3746a1fa681b3b093003dc1743d"
-  integrity sha512-C7eN3OKggSfd5g8IDgUA9guC8TNS6CEganKT7dL6Fp3q+FobcQ/WBn2Qq2XTL1vNTiFZfDzXohvqLuR9dWejdg==
+engine.io-client@~6.5.1:
+  version "6.5.1"
+  resolved "https://registry.yarnpkg.com/engine.io-client/-/engine.io-client-6.5.1.tgz#1735fb8ae3bae5ae13115e18d2f484daf005dd9c"
+  integrity sha512-hE5wKXH8Ru4L19MbM1GgYV/2Qo54JSMh1rlJbfpa40bEWkCKNo3ol2eOtGmowcr+ysgbI7+SGL+by42Q3pt/Ng==
   dependencies:
     "@socket.io/component-emitter" "~3.1.0"
     debug "~4.3.1"
@@ -12521,13 +12547,13 @@ slice-ansi@^4.0.0:
     is-fullwidth-code-point "^3.0.0"
 
 socket.io-client@^4.6.1:
-  version "4.7.0"
-  resolved "https://registry.yarnpkg.com/socket.io-client/-/socket.io-client-4.7.0.tgz#f869a41a2593bc36f058f3b46175024491d997b5"
-  integrity sha512-7Q8CeDrhuZzg4QLXl3tXlk5yb086oxYzehAVZRLiGCzCmtDneiHz1qHyyWcxhTgxXiokVpWQXoG/u60HoXSQew==
+  version "4.7.1"
+  resolved "https://registry.yarnpkg.com/socket.io-client/-/socket.io-client-4.7.1.tgz#48e5f703abe4fb0402182bcf9c06b7820fb3453b"
+  integrity sha512-Qk3Xj8ekbnzKu3faejo4wk2MzXA029XppiXtTF/PkbTg+fcwaTw1PlDrTrrrU4mKoYC4dvlApOnSeyLCKwek2w==
   dependencies:
     "@socket.io/component-emitter" "~3.1.0"
     debug "~4.3.2"
-    engine.io-client "~6.5.0"
+    engine.io-client "~6.5.1"
     socket.io-parser "~4.2.4"
 
 socket.io-parser@~4.2.4:
@@ -13628,9 +13654,9 @@ viem@1.1.7:
     ws "8.12.0"
 
 viem@^1.0.0:
-  version "1.1.8"
-  resolved "https://registry.yarnpkg.com/viem/-/viem-1.1.8.tgz#af5f8e2d3339be1db36405f3c0f15f5243658ce9"
-  integrity sha512-sMIbBu/rKI4paCWvCxpDNAT7vO9nCtu9SKXdVk5lwMVRL/HmMFCiIBtvRO0IiqlrvZTFCWnPEMn7ndNRyb+NCQ==
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/viem/-/viem-1.2.1.tgz#88ea214b50ce6c74b0173c1cdfb5bb4bc7f6134d"
+  integrity sha512-45eyE1QsPzUTJqslOD8SVAF3Nn3QMLZIKTu/YzaPPe8UuDMwrmvAWlfDole2kBzFAM8B6sXsQeZBQKYwtb7dVQ==
   dependencies:
     "@adraffy/ens-normalize" "1.9.0"
     "@noble/curves" "1.0.0"

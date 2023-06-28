@@ -16,11 +16,13 @@ const modalTheme = createTheme({
         backgroundImg:
           'https://uploads-ssl.webflow.com/63fdf8c863bcf0c02efdffbc/64144c23e693f7d7f5cdb958_chorus_logo.svg',
         title: {
-          color: PALETTE.text
+          color: PALETTE.text,
+          fontSize: '2.5rem'
         },
         button: {
           backgroundColor: PALETTE.mainBgOpaque,
           fontWeight: 600,
+          fontSize: '1rem',
           letterSpacing: '-1.7px',
           fontStyle: 'normal',
           textShadow: '3px 2px 2px #00000078'

@@ -32,6 +32,10 @@ const config = {
   },
   modals: {
     pstl: {
+      walletsView: 'grid',
+      width: '650px',
+      maxWidth: '100%',
+      maxHeight: '550px',
       closeModalOnConnect: true,
       zIndex: ZIndices.BASE,
       title: 'CHORUS ONE CONNECT',
@@ -42,7 +46,7 @@ const config = {
       connectorDisplayOverrides: {
         web3auth: {
           logo: 'https://www.pngkit.com/png/full/178-1783296_g-transparent-circle-google-logo.png',
-          customName: 'GMAIL & MOBILE',
+          customName: 'GMAIL/MOBILE',
           // Uncomment to add helper text under connectors
           // infoText: {
           //   title: 'What is this option?',

@@ -1,3 +1,4 @@
+import { useMemo, useState } from 'react'
 import PSTL_MODAL_CONFIG from './config'
 import { PstlW3Providers, usePstlConnection } from '@past3lle/web3-modal'
 
@@ -6,8 +7,49 @@ function InnerApp() {
 
   return (
     <div className="InnerApp">
+      {address && <h2>Address: {address}</h2>}
+
+      <br />
+      <button
+        style={{
+          padding: '1rem',
+          background: 'rgba(0,0,0,0.5)',
+          borderRadius: '1rem',
+          outline: 'none',
+          color: 'ghostwhite',
+          cursor: 'pointer',
+          border: 'none',
+          boxShadow: '2px 2px 0px 2px black'
+        }}
+        onClick={() => (address ? openW3Modal({ route: 'Account' }) : openPstlW3Modal({ route: 'ConnectWallet' }))}
+      >
+        {address ? 'VIEW ACCOUNT INFO' : 'OPEN WEB3 MODAL'}
+      </button>
+    </div>
+  )
+}
+
+export default function App() {
+  const [view, setView] = useState<'list' | 'grid'>('list')
+  // TODO: should prob make this logic default in lib
+  // But tbh most ppl wouldn't add a modal "view" switcher in their app anyway...
+  const moddedConfig = useMemo(() => {
+    const config = Object.assign({}, PSTL_MODAL_CONFIG)
+    ;(config.modals.pstl || {}).walletsView = view
+    if (view === 'grid') {
+      ;(config.modals.pstl || {}).width = '650px'
+      ;(config.modals.pstl || {}).maxWidth = '100%'
+      ;(config.modals.pstl || {}).maxHeight = '550px'
+    } else {
+      ;(config.modals.pstl || {}).maxWidth = '50vh'
+    }
+    return config
+  }, [view])
+
+  return (
+    <>
       <h1>Hello!</h1>
-      <h2>Click below to see the modal in action</h2>
+      <h2>Click below to see grid view and list view modals in action</h2>
       <h3>
         Example config can be found{' '}
         <a
@@ -24,22 +66,12 @@ function InnerApp() {
           also here!
         </a>
       </h3>
-
-      {address && <h2>Address: {address}</h2>}
-
-      <button
-        onClick={() => (address ? openW3Modal({ route: 'Account' }) : openPstlW3Modal({ route: 'ConnectWallet' }))}
-      >
-        {address ? 'VIEW ACCOUNT INFO' : 'OPEN PAST3LLE MODAL'}
+      <button onClick={() => setView(currView => (currView === 'list' ? 'grid' : 'list'))}>
+        CHANGE MODAL VIEW TYPE: {view === 'list' ? 'GRID' : 'LIST'}
       </button>
-    </div>
-  )
-}
-
-export default function App() {
-  return (
-    <PstlW3Providers config={PSTL_MODAL_CONFIG}>
-      <InnerApp />
-    </PstlW3Providers>
+      <PstlW3Providers config={moddedConfig}>
+        <InnerApp />
+      </PstlW3Providers>
+    </>
   )
 }
