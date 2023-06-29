@@ -2412,10 +2412,10 @@
   resolved "https://registry.yarnpkg.com/@past3lle/assets/-/assets-0.0.19.tgz#c92d16394f8b803173bff15275f9e7550055b2f9"
   integrity sha512-jGHJT4bc583Q+V21+SFP3yad/1K5ME6wsguzh7DYOuQc9LJ7WYWfci/HrB3cp4pkDLwtE5YpzuR5zXcC98/BZA==
 
-"@past3lle/components@^0.0.76":
-  version "0.0.76"
-  resolved "https://registry.yarnpkg.com/@past3lle/components/-/components-0.0.76.tgz#bf0e930f51dc4845d6e3b6e90eb2c226bc5db640"
-  integrity sha512-oCe3iyPkEjb9nOIREM/jRigeu/nptQUHlKhxts7oTKUPilM89BUXCmQe35c412tkFN5n3HKJkZ/TpB5FXBwYzA==
+"@past3lle/components@^0.0.77":
+  version "0.0.77"
+  resolved "https://registry.yarnpkg.com/@past3lle/components/-/components-0.0.77.tgz#f98be84180f5d19a01d8a6794e426f94da686241"
+  integrity sha512-RNYQ6OQ6h0bxDpJMYxQQcMpHtMDH9y7O2U6fCVsze83Ii+uQedljykVozk8DuQ6wqIkMvGBoIJ/KATdUAAqv1g==
   dependencies:
     "@past3lle/assets" "^0.0.19"
     "@past3lle/constants" "^0.0.27"
@@ -2474,14 +2474,14 @@
   dependencies:
     ua-parser-js "^1.0.32"
 
-"@past3lle/web3-modal@^1.0.6":
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/@past3lle/web3-modal/-/web3-modal-1.0.6.tgz#7444edaf3385bc8b62d29848ba5eaf67985be236"
-  integrity sha512-hcFHTx7VvY5YUhMTZJH5EKbqgauhWyaMcxKcJlHDJ5mW4RFCa43vQ3kwKN4CgVR70CqO0dZS51GfzB2py5vRNw==
+"@past3lle/web3-modal@^1.0.9":
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/@past3lle/web3-modal/-/web3-modal-1.0.9.tgz#013502b1d84d4f9977f0ad4ad0ceee2db24c14e4"
+  integrity sha512-6n3JPRP9G/l+O86LU+RbZS5nGYYCg88NW1tWG+51DF8j9BWxmZaqI34ps6OyfpXmoC2Wce07V5GCoLniB93XBA==
   dependencies:
     "@ethersproject/bignumber" ">=5.7.0"
     "@gnosis.pm/safe-apps-wagmi" "2.1.0"
-    "@past3lle/components" "^0.0.76"
+    "@past3lle/components" "^0.0.77"
     "@past3lle/hooks" "^0.0.41"
     "@past3lle/theme" "^0.0.49"
     "@past3lle/utils" "^0.0.27"
