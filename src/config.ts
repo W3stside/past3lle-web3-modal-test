@@ -39,6 +39,14 @@ const config = {
       themeConfig: {
         theme: modalTheme
       },
+      loaderProps: {
+        containerProps: {
+          backgroundColor: '#000000c9'
+        },
+        spinnerProps: {
+          size: 60
+        }
+      },
       connectorDisplayOverrides: {
         web3auth: {
           logo: 'https://www.pngkit.com/png/full/178-1783296_g-transparent-circle-google-logo.png',
@@ -75,6 +83,7 @@ const config = {
           //   title: 'What is this option?',
           //   content: 'Choose this to connect with your Ledger hardware wallet via the LedgerLive desktop app!'
           // },
+          modalNodeId: 'ModalWrapper',
           isRecommended: true,
           rank: WalletRank['ledger']
         }
