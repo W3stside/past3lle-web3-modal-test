@@ -4,6 +4,7 @@ import modalTheme, { PALETTE } from 'theme'
 
 import { LedgerConnector } from 'wagmi/connectors/ledger'
 import { InjectedConnector } from 'wagmi/connectors/injected'
+import { LedgerHIDConnector } from '@past3lle/wagmi-connectors'
 
 enum WalletRank {
   'ledger' = 10,
@@ -47,7 +48,8 @@ const config: PstlWeb3ModalProps<number> = {
       getProvider() {
         return (window as any)?.tally
       }
-    })
+    }),
+    addConnector(LedgerHIDConnector, {})
   ],
   options: {
     pollingInterval: 10_000
@@ -94,12 +96,14 @@ const config: PstlWeb3ModalProps<number> = {
           logo:
             'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/MetaMask_Fox.svg/1200px-MetaMask_Fox.svg.png',
           isRecommended: true,
-          rank: WalletRank['ledger'] - 1
+          rank: WalletRank['ledger'] - 1,
+          downloadUrl: 'https://metamask.io/download'
         },
         taho: {
           logo: 'https://user-images.githubusercontent.com/95715502/221033622-fb606b37-93f1-485b-9ce5-59b92f756033.png',
           isRecommended: true,
-          rank: WalletRank['ledger'] - 1
+          rank: WalletRank['ledger'] - 1,
+          downloadUrl: 'https://taho.xyz'
         },
         coinbasewallet: {
           logo: 'https://altcoinsbox.com/wp-content/uploads/2022/12/coinbase-logo.webp',
@@ -118,6 +122,16 @@ const config: PstlWeb3ModalProps<number> = {
           modalNodeId: 'ModalWrapper',
           isRecommended: true,
           rank: WalletRank['ledger']
+        },
+        'ledger-hid': {
+          customName: 'LEDGER HID',
+          logo: 'https://crypto-central.io/library/uploads/Ledger-Logo-3.png',
+          rank: 10,
+          isRecommended: true,
+          infoText: {
+            title: 'What is Ledger HID?',
+            content: <strong>Ledger wallet is a cold storage hardware wallet.</strong>
+          }
         }
       }
     },
