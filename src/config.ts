@@ -1,8 +1,9 @@
-import { PstlWeb3ModalProps } from '@past3lle/web3-modal'
+import { PstlWeb3ModalProps, addConnector } from '@past3lle/web3-modal'
 import { mainnet } from '@wagmi/chains'
 import modalTheme, { PALETTE } from 'theme'
 
 import { LedgerConnector } from 'wagmi/connectors/ledger'
+import { InjectedConnector } from 'wagmi/connectors/injected'
 
 enum WalletRank {
   'ledger' = 10,
@@ -21,17 +22,38 @@ const chains = [mainnet]
 const WC_PROJECT_ID = 'a01e2f3b7c64ff495f9cb28e4e2d4b49'
 const WEB3AUTH_TEST_ID = 'BHloyoLW113nGn-mIfeeNqj2U0wNCXa4y83xLnR6d3FELPMz_oZ7rbY4ZEO3r0MVjQ_LX92obu1ta0NknOwfvtU'
 
-const config = {
+const config: PstlWeb3ModalProps<number> = {
   appName: 'Test App',
   chains,
-  wagmiClient: {
-    options: {
-      pollingInterval: 10_000,
-      connectors: [new LedgerConnector({ chains, options: { projectId: WC_PROJECT_ID, walletConnectVersion: 2 } })]
-    }
+  connectors: [
+    addConnector(LedgerConnector, { projectId: WC_PROJECT_ID, walletConnectVersion: 2 }),
+    addConnector(InjectedConnector, {
+      name: 'MetaMask',
+      shimDisconnect: true,
+      getProvider() {
+        return (window.ethereum as any)?.providerMap?.get('MetaMask') || window.ethereum
+      }
+    }),
+    addConnector(InjectedConnector, {
+      name: 'CoinbaseWallet',
+      shimDisconnect: true,
+      getProvider() {
+        return (window as any)?.coinbaseWalletExtension
+      }
+    }),
+    addConnector(InjectedConnector, {
+      name: 'Taho',
+      shimDisconnect: true,
+      getProvider() {
+        return (window as any)?.tally
+      }
+    })
+  ],
+  options: {
+    pollingInterval: 10_000
   },
   modals: {
-    pstl: {
+    root: {
       walletsView: 'grid',
       closeModalOnConnect: true,
       zIndex: ZIndices.BASE,
@@ -59,7 +81,7 @@ const config = {
           // },
           rank: WalletRank['web3auth']
         },
-        walletConnect: {
+        walletconnect: {
           logo: 'https://repository-images.githubusercontent.com/204001588/a5169900-c66c-11e9-8592-33c7334dfd6d',
           // Uncomment to add helper text under connectors
           // infoText: {
@@ -68,9 +90,19 @@ const config = {
           // },
           rank: WalletRank['walletConnect']
         },
-        MetaMask: {
+        metamask: {
           logo:
             'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/MetaMask_Fox.svg/1200px-MetaMask_Fox.svg.png',
+          isRecommended: true,
+          rank: WalletRank['ledger'] - 1
+        },
+        taho: {
+          logo: 'https://user-images.githubusercontent.com/95715502/221033622-fb606b37-93f1-485b-9ce5-59b92f756033.png',
+          isRecommended: true,
+          rank: WalletRank['ledger'] - 1
+        },
+        coinbasewallet: {
+          logo: 'https://altcoinsbox.com/wp-content/uploads/2022/12/coinbase-logo.webp',
           isRecommended: true,
           rank: WalletRank['ledger'] - 1
         },
@@ -89,13 +121,13 @@ const config = {
         }
       }
     },
-    w3a: {
+    web3auth: {
       appName: 'Test App',
       projectId: WEB3AUTH_TEST_ID,
       network: 'testnet',
       preset: 'DISALLOW_EXTERNAL_WALLETS'
     },
-    w3m: {
+    walletConnect: {
       // test id, don't use in prod!
       projectId: WC_PROJECT_ID,
       zIndex: 1000,
@@ -110,6 +142,6 @@ const config = {
       }
     }
   }
-} as PstlWeb3ModalProps<number>
+}
 
 export default config

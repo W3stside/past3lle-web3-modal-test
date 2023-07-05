@@ -1,10 +1,11 @@
 import { useMemo, useState } from 'react'
 import PSTL_MODAL_CONFIG from './config'
-import { PstlW3Providers, usePstlConnection } from '@past3lle/web3-modal'
+import { PstlW3Providers, usePstlUserConnectionInfo, usePstlWeb3Modals } from '@past3lle/web3-modal'
 import { useIsSmallMediaWidth } from '@past3lle/hooks'
 
 function InnerApp() {
-  const [, { openPstlW3Modal, openW3Modal }, { address }] = usePstlConnection()
+  const { address } = usePstlUserConnectionInfo()
+  const { root, walletConnect } = usePstlWeb3Modals()
 
   return (
     <div className="InnerApp">
@@ -22,7 +23,7 @@ function InnerApp() {
           border: 'none',
           boxShadow: '2px 2px 0px 2px black'
         }}
-        onClick={() => (address ? openW3Modal({ route: 'Account' }) : openPstlW3Modal({ route: 'ConnectWallet' }))}
+        onClick={() => (address ? walletConnect.open({ route: 'Account' }) : root.open({ route: 'ConnectWallet' }))}
       >
         {address ? 'VIEW ACCOUNT INFO' : 'OPEN WEB3 MODAL'}
       </button>
@@ -37,7 +38,7 @@ export default function App() {
   // But tbh most ppl wouldn't add a modal "view" switcher in their app anyway...
   const moddedConfig = useMemo(() => {
     const config = Object.assign({}, PSTL_MODAL_CONFIG)
-    ;(config.modals.pstl || {}).walletsView = view
+    ;(config.modals.root || {}).walletsView = view
     return config
   }, [view])
 
